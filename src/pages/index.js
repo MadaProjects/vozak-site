@@ -13,8 +13,10 @@ const basicPageStyle = {
 const IndexPage = () => {
   return (
     <div data-testid='indexPage'>
-      <h1>Lucie Vozáková</h1>
-      <p>Behaviorální terapeut</p>
+      <div data-testid='secton1'>
+        <h1>Lucie Vozáková</h1>
+        <p>Behaviorální terapeut</p>
+      </div>
     </div>
   );
 };
