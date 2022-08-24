@@ -29,4 +29,11 @@ describe('IndexPage', () => {
       expect(screen.getByText('Behaviorální terapeut'));
     });
   });
+
+  describe('section 2', () => {
+    it('render second section', () => {
+      render(<IndexPage />);
+      expect(screen.getByTestId('section2')).toBeInTheDocument();
+    });
+  });
 });

@@ -17,6 +17,7 @@ const IndexPage = () => {
         <h1>Lucie Vozáková</h1>
         <p>Behaviorální terapeut</p>
       </div>
+      <div data-testid='section2'></div>
     </div>
   );
 };
