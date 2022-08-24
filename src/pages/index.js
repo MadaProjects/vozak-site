@@ -11,7 +11,11 @@ const basicPageStyle = {
 };
 
 const IndexPage = () => {
-  return <div data-testid='indexPage'></div>;
+  return (
+    <div data-testid='indexPage'>
+      <h1>Lucie Vozáková</h1>
+    </div>
+  );
 };
 
 export default IndexPage;
