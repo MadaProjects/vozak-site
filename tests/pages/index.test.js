@@ -15,4 +15,9 @@ describe('404', () => {
       'Lucie Vozáková'
     );
   });
+
+  it('render subtitle for main heading', () => {
+    render(<IndexPage />);
+    expect(screen.getByText('Behaviorální terapeut'));
+  });
 });
