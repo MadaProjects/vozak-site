@@ -41,4 +41,16 @@ describe('Section', () => {
       screen.queryByRole('heading', { level: 1 })
     ).not.toBeInTheDocument();
   });
+
+  it('render a text', () => {
+    const text = 'Lorem ipsum et donor';
+    render(<Section text={text} />);
+    expect(screen.getByText(text)).toBeInTheDocument();
+  });
+
+  it('render a diferent text', () => {
+    const text = 'Donor et lorem';
+    render(<Section text={text} />);
+    expect(screen.getByText(text)).toBeInTheDocument();
+  });
 });
