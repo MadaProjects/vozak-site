@@ -24,72 +24,41 @@ const IndexPage = () => {
     backgroundColor: '#e1f2f7',
   });
 
-  const scroolIsOnSection = () => {};
+  const backgroundColors = ['#e1f2f7', '#90d9e2', '#ffa551'];
+
+  const scroolIsOnSection = () => {
+    const currentScrollPosition = window.scrollY + window.innerHeight;
+
+    if (
+      currentScrollPosition > firstSectionRef.current?.offsetHeight &&
+      currentScrollPosition <=
+        firstSectionRef.current?.offsetHeight +
+          secondSectionRef.current?.offsetHeight
+    ) {
+      return 2;
+    }
+
+    if (
+      currentScrollPosition >
+        firstSectionRef.current?.offsetHeight +
+          secondSectionRef.current?.offsetHeight &&
+      currentScrollPosition <=
+        firstSectionRef.current?.offsetHeight +
+          secondSectionRef.current?.offsetHeight +
+          thirdSectionRef.current?.offsetHeight
+    ) {
+      return 3;
+    }
+
+    return 1;
+  };
 
   const handleScroll = () => {
     const offset = 100;
     if (typeof window !== 'undefined') {
-      /*
-      const sectionsDimensions = {
-        1: {
-          top: 0,
-          bottom: firstSectionRef.current?.clientHeight,
-        },
-        2: {
-          top: secondSectionRef.current?.offsetTop,
-          bottom:
-            secondSectionRef.current?.offsetTop +
-            secondSectionRef.current?.clientHeight,
-        },
-        3: {
-          top: thirdSectionRef.current?.offsetTop,
-          bottom:
-            thirdSectionRef.current?.offsetTop +
-            thirdSectionRef.current?.clientHeight,
-        },
-      };
-      */
-      /*
-      console.log(window.scrollY);
-      console.log(window.innerHeight);
-      console.log(firstSectionRef.current?.offsetHeight);
-      console.log('scroll');
-      */
-      const currentScrollPosition = window.scrollY + window.innerHeight;
-
-      if (
-        currentScrollPosition > firstSectionRef.current?.offsetHeight &&
-        currentScrollPosition <=
-          firstSectionRef.current?.offsetHeight +
-            secondSectionRef.current?.offsetHeight
-      ) {
-        setBacgkroundColor({
-          backgroundColor: '#90d9e2',
-        });
-      }
-
-      if (
-        currentScrollPosition >
-          firstSectionRef.current?.offsetHeight +
-            secondSectionRef.current?.offsetHeight &&
-        currentScrollPosition <=
-          firstSectionRef.current?.offsetHeight +
-            secondSectionRef.current?.offsetHeight +
-            thirdSectionRef.current?.offsetHeight
-      ) {
-        setBacgkroundColor({
-          backgroundColor: '#ffa551',
-        });
-      }
-
-      if (currentScrollPosition < firstSectionRef.current?.offsetHeight) {
-        setBacgkroundColor({
-          backgroundColor: '#e1f2f7',
-        });
-      }
-
-      //console.log(window.scrollY);
-      //console.log(sectionsDimensions);
+      setBacgkroundColor({
+        backgroundColor: backgroundColors[scroolIsOnSection() - 1],
+      });
     }
   };
 
@@ -108,7 +77,7 @@ const IndexPage = () => {
         style={basicPageStyle}
         data-testid='section1'
         ref={firstSectionRef}>
-        <h1>Lucie Vozáková</h1>
+        <h1 className='text-3xl font-bold underline'>Lucie Vozáková</h1>
         <p>Behaviorální terapeut</p>
       </div>
       <div
