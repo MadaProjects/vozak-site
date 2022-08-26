@@ -107,5 +107,29 @@ describe('IndexPage', () => {
         `background-color: ${firstSectionColor}`
       );
     });
+
+    it('change background color back on default on scroll to first section', async () => {
+      render(<IndexPage />);
+
+      fireEvent.scroll(window, {
+        target: {
+          scrollY: screen.getByTestId('section2').offsetHeight,
+        },
+      });
+
+      expect(await screen.getByTestId('indexPage')).toHaveStyle(
+        `background-color: ${secondSectionColor}`
+      );
+
+      fireEvent.scroll(window, {
+        target: {
+          scrollY: -screen.getByTestId('section2').offsetHeight,
+        },
+      });
+
+      expect(await screen.getByTestId('indexPage')).toHaveStyle(
+        `background-color: ${firstSectionColor}`
+      );
+    });
   });
 });

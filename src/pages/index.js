@@ -47,12 +47,22 @@ const IndexPage = () => {
         },
       };
       */
+      /*
+      console.log(window.scrollY);
+      console.log(window.innerHeight);
+      console.log(firstSectionRef.current?.offsetHeight);
+      console.log('scroll');
+      */
       if (
         window.scrollY + window.innerHeight >
         firstSectionRef.current?.offsetHeight
       ) {
         setBacgkroundColor({
           backgroundColor: '#90d9e2',
+        });
+      } else {
+        setBacgkroundColor({
+          backgroundColor: '#e1f2f7',
         });
       }
 
