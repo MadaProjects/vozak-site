@@ -33,4 +33,12 @@ describe('Section', () => {
       screen.queryByRole('heading', { level: 1 })
     ).not.toBeInTheDocument();
   });
+
+  it('does not render h1 on empty title', () => {
+    const testTitle = 'Lorem';
+    render(<Section mainTitle='' />);
+    expect(
+      screen.queryByRole('heading', { level: 1 })
+    ).not.toBeInTheDocument();
+  });
 });
