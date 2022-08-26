@@ -25,4 +25,12 @@ describe('Section', () => {
       testTitle
     );
   });
+
+  it('does not render h1 on missing title', () => {
+    const testTitle = 'Lorem';
+    render(<Section />);
+    expect(
+      screen.queryByRole('heading', { level: 1 })
+    ).not.toBeInTheDocument();
+  });
 });
