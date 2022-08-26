@@ -53,4 +53,10 @@ describe('Section', () => {
     render(<Section text={text} />);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
+
+  it('render a text in paragraph', () => {
+    const text = 'Donor et lorem';
+    render(<Section text={text} />);
+    expect(screen.getByText(text).tagName).toMatch('P');
+  });
 });
