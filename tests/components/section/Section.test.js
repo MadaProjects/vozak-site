@@ -59,4 +59,9 @@ describe('Section', () => {
     render(<Section text={text} />);
     expect(screen.getByText(text).tagName).toMatch('P');
   });
+
+  it('render empty div on missing params', () => {
+    render(<Section />);
+    expect(screen.getByTestId('section').childNodes.length).toEqual(0);
+  });
 });
