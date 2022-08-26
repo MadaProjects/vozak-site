@@ -9,10 +9,20 @@ describe('Section', () => {
   });
 
   it('render title as h1', () => {
-    render(<Section mainTitle='Test' />);
+    const testTitle = 'Test';
+    render(<Section mainTitle={testTitle} />);
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 1 }).textContent).toMatch(
-      'Test'
+      testTitle
+    );
+  });
+
+  it('render diferent title as h1', () => {
+    const testTitle = 'Lorem';
+    render(<Section mainTitle={testTitle} />);
+    expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1 }).textContent).toMatch(
+      testTitle
     );
   });
 });
