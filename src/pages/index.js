@@ -9,8 +9,12 @@ const pageStyles = {
   transition: 'background-color 0.25s ease-in-out',
 };
 
+const headingStyles = {
+  fontFamily: '"Oswald", sans-serif',
+  fontWeight: 800,
+};
+
 const basicPageStyle = {
-  borderTop: '1px solid black',
   height: '100vh',
   padding: 25,
 };
@@ -71,26 +75,32 @@ const IndexPage = () => {
   return (
     <div
       data-testid='indexPage'
-      className='sectionSecondBackground'
+      className='sectionSecondBackground '
       style={{ ...pageStyles, ...backgroundColor }}>
-      <div
-        style={basicPageStyle}
-        data-testid='section1'
-        ref={firstSectionRef}>
-        <h1 className='text-3xl font-bold underline'>Lucie Vozáková</h1>
-        <p>Behaviorální terapeut</p>
-      </div>
-      <div
-        data-testid='section2'
-        style={basicPageStyle}
-        ref={secondSectionRef}>
-        <h2>TEST</h2>
-      </div>
-      <div
-        data-testid='section3'
-        style={basicPageStyle}
-        ref={thirdSectionRef}>
-        <h2>TEST 2</h2>
+      <div className='container mx-auto'>
+        <div
+          style={basicPageStyle}
+          data-testid='section1'
+          ref={firstSectionRef}>
+          <h1
+            className='text-[5vw] font-bold underline'
+            style={headingStyles}>
+            Lucie Vozáková
+          </h1>
+          <p>Behaviorální terapeut</p>
+        </div>
+        <div
+          data-testid='section2'
+          style={basicPageStyle}
+          ref={secondSectionRef}>
+          <h2>TEST</h2>
+        </div>
+        <div
+          data-testid='section3'
+          style={basicPageStyle}
+          ref={thirdSectionRef}>
+          <h2>TEST 2</h2>
+        </div>
       </div>
     </div>
   );
