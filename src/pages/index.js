@@ -10,6 +10,7 @@ const pageStyles = {
 };
 
 const basicPageStyle = {
+  borderTop: '1px solid black',
   height: '100vh',
   padding: 25,
 };
@@ -26,6 +27,7 @@ const IndexPage = () => {
   const scroolIsOnSection = () => {};
 
   const handleScroll = () => {
+    const offset = 100;
     if (typeof window !== 'undefined') {
       /*
       const sectionsDimensions = {
@@ -53,14 +55,34 @@ const IndexPage = () => {
       console.log(firstSectionRef.current?.offsetHeight);
       console.log('scroll');
       */
+      const currentScrollPosition = window.scrollY + window.innerHeight;
+
       if (
-        window.scrollY + window.innerHeight >
-        firstSectionRef.current?.offsetHeight
+        currentScrollPosition > firstSectionRef.current?.offsetHeight &&
+        currentScrollPosition <=
+          firstSectionRef.current?.offsetHeight +
+            secondSectionRef.current?.offsetHeight
       ) {
         setBacgkroundColor({
           backgroundColor: '#90d9e2',
         });
-      } else {
+      }
+
+      if (
+        currentScrollPosition >
+          firstSectionRef.current?.offsetHeight +
+            secondSectionRef.current?.offsetHeight &&
+        currentScrollPosition <=
+          firstSectionRef.current?.offsetHeight +
+            secondSectionRef.current?.offsetHeight +
+            thirdSectionRef.current?.offsetHeight
+      ) {
+        setBacgkroundColor({
+          backgroundColor: '#ffa551',
+        });
+      }
+
+      if (currentScrollPosition < firstSectionRef.current?.offsetHeight) {
         setBacgkroundColor({
           backgroundColor: '#e1f2f7',
         });

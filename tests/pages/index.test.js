@@ -73,6 +73,7 @@ describe('IndexPage', () => {
   describe('scroll', () => {
     const firstSectionColor = '#e1f2f7';
     const secondSectionColor = '#90d9e2';
+    const thirdSectionColor = '#ffa551';
 
     it('has default background', async () => {
       render(<IndexPage />);
@@ -129,6 +130,21 @@ describe('IndexPage', () => {
 
       expect(await screen.getByTestId('indexPage')).toHaveStyle(
         `background-color: ${firstSectionColor}`
+      );
+    });
+
+    it('change background color on scroll to third section', async () => {
+      render(<IndexPage />);
+      fireEvent.scroll(window, {
+        target: {
+          scrollY:
+            screen.getByTestId('section1').offsetHeight +
+            screen.getByTestId('section2').offsetHeight,
+        },
+      });
+
+      expect(await screen.getByTestId('indexPage')).toHaveStyle(
+        `background-color: ${thirdSectionColor}`
       );
     });
   });
