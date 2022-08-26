@@ -16,6 +16,7 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "@fontsource/montserrat": "^4.5.12",
     "babel-plugin-styled-components": "^2.0.7",
     "gatsby": "^4.21.1",
     "gatsby-plugin-image": "^2.21.0",
