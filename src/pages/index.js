@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { Section } from '../components/section/Section';
+import { sectionsData } from '../data';
 
 const pageStyles = {
   color: 'black',
@@ -18,9 +19,22 @@ const IndexPage = () => {
   const firstSectionRef = useRef(null);
   const secondSectionRef = useRef(null);
   const thirdSectionRef = useRef(null);
+  const sectionRef4 = useRef(null);
+  const sectionRef5 = useRef(null);
+  const sectionRef6 = useRef(null);
   const [backgroundColor, setBackgroundColor] = useState('#e1f2f7');
   const [scrolingDown, setScrolingDown] = useState(true);
-  const backgroundColors = ['#e1f2f7', '#90d9e2', '#ffa551'];
+  const backgroundColors = [
+    '#e1f2f7',
+    '#90d9e2',
+    '#ffa551',
+    '#ff6353',
+    '#a6f9fb',
+    '#84efc9',
+    '#5597a9',
+    '#d74e40',
+    '#ffc668',
+  ];
 
   const scroolIsOnSection = () => {
     const currentScrollPosition = scrolingDown
@@ -46,6 +60,29 @@ const IndexPage = () => {
           thirdSectionRef.current?.offsetHeight
     ) {
       return 3;
+    }
+
+    if (
+      currentScrollPosition > sectionRef4.current?.offsetTop &&
+      currentScrollPosition <=
+        sectionRef4.current?.offsetTop + sectionRef4.current?.offsetHeight
+    ) {
+      return 4;
+    }
+
+    if (
+      currentScrollPosition > sectionRef5.current?.offsetTop &&
+      currentScrollPosition <=
+        sectionRef5.current?.offsetTop + sectionRef5.current?.offsetHeight
+    ) {
+      return 5;
+    }
+    if (
+      currentScrollPosition > sectionRef6.current?.offsetTop &&
+      currentScrollPosition <=
+        sectionRef6.current?.offsetTop + sectionRef6.current?.offsetHeight
+    ) {
+      return 6;
     }
   };
 
@@ -91,7 +128,7 @@ const IndexPage = () => {
           ref={firstSectionRef}>
           <Section
             mainTitle='Lorem ipsum'
-            text='Et donor santum'
+            text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a laoreet lorem. Donec erat nisl, pretium ut purus vel, tempus volutpat justo. Aenean dictum sagittis elit mollis facilisis. Donec lacus neque, hendrerit vel tincidunt vitae, finibus id nulla. Integer efficitur, neque sit amet semper dictum, dui lorem condimentum libero, id mattis lectus enim vel libero. Mauris maximus, odio quis facilisis accumsan, orci eros tincidunt tortor, non feugiat nisi justo quis risus. Donec ipsum sapien, venenatis ut condimentum a, finibus sed augue. Praesent dapibus mattis urna et pretium.'
             isMainTitle={true}
           />
         </div>
@@ -109,7 +146,37 @@ const IndexPage = () => {
           data-testid='section3'
           style={basicPageStyle}
           ref={thirdSectionRef}>
-          <Section mainTitle='Lorem ipsum' text='Et donor santum' />
+          <Section
+            mainTitle='Lorem ipsum'
+            text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a laoreet lorem. Donec erat nisl, pretium ut purus vel, tempus volutpat justo. Aenean dictum sagittis elit mollis facilisis. Donec lacus neque, hendrerit vel tincidunt vitae, finibus id nulla. Integer efficitur, neque sit amet semper dictum, dui lorem condimentum libero, id mattis lectus enim vel libero. Mauris maximus, odio quis facilisis accumsan, orci eros tincidunt tortor, non feugiat nisi justo quis risus. Donec ipsum sapien, venenatis ut condimentum a, finibus sed augue. Praesent dapibus mattis urna et pretium.'
+          />
+        </div>
+        <div
+          data-testid='section4'
+          style={basicPageStyle}
+          ref={sectionRef4}>
+          <Section
+            mainTitle='Lorem ipsum'
+            text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a laoreet lorem. Donec erat nisl, pretium ut purus vel, tempus volutpat justo. Aenean dictum sagittis elit mollis facilisis. Donec lacus neque, hendrerit vel tincidunt vitae, finibus id nulla. Integer efficitur, neque sit amet semper dictum, dui lorem condimentum libero, id mattis lectus enim vel libero. Mauris maximus, odio quis facilisis accumsan, orci eros tincidunt tortor, non feugiat nisi justo quis risus. Donec ipsum sapien, venenatis ut condimentum a, finibus sed augue. Praesent dapibus mattis urna et pretium.'
+          />
+        </div>
+        <div
+          data-testid='section5'
+          style={basicPageStyle}
+          ref={sectionRef5}>
+          <Section
+            mainTitle='Lorem ipsum'
+            text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a laoreet lorem. Donec erat nisl, pretium ut purus vel, tempus volutpat justo. Aenean dictum sagittis elit mollis facilisis. Donec lacus neque, hendrerit vel tincidunt vitae, finibus id nulla. Integer efficitur, neque sit amet semper dictum, dui lorem condimentum libero, id mattis lectus enim vel libero. Mauris maximus, odio quis facilisis accumsan, orci eros tincidunt tortor, non feugiat nisi justo quis risus. Donec ipsum sapien, venenatis ut condimentum a, finibus sed augue. Praesent dapibus mattis urna et pretium.'
+          />
+        </div>
+        <div
+          data-testid='section6'
+          style={basicPageStyle}
+          ref={sectionRef6}>
+          <Section
+            mainTitle='Lorem ipsum'
+            text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a laoreet lorem. Donec erat nisl, pretium ut purus vel, tempus volutpat justo. Aenean dictum sagittis elit mollis facilisis. Donec lacus neque, hendrerit vel tincidunt vitae, finibus id nulla. Integer efficitur, neque sit amet semper dictum, dui lorem condimentum libero, id mattis lectus enim vel libero. Mauris maximus, odio quis facilisis accumsan, orci eros tincidunt tortor, non feugiat nisi justo quis risus. Donec ipsum sapien, venenatis ut condimentum a, finibus sed augue. Praesent dapibus mattis urna et pretium.'
+          />
         </div>
       </div>
     </div>
