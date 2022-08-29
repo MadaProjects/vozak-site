@@ -10,7 +10,7 @@ describe('Section', () => {
 
   it('render title as h1', () => {
     const testTitle = 'Test';
-    render(<Section mainTitle={testTitle} />);
+    render(<Section mainTitle={testTitle} isMainTitle={true} />);
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 1 }).textContent).toMatch(
       testTitle
@@ -19,7 +19,7 @@ describe('Section', () => {
 
   it('render diferent title as h1', () => {
     const testTitle = 'Lorem';
-    render(<Section mainTitle={testTitle} />);
+    render(<Section mainTitle={testTitle} isMainTitle={true} />);
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 1 }).textContent).toMatch(
       testTitle
@@ -28,7 +28,7 @@ describe('Section', () => {
 
   it('does not render h1 on missing title', () => {
     const testTitle = 'Lorem';
-    render(<Section />);
+    render(<Section isMainTitle={true} />);
     expect(
       screen.queryByRole('heading', { level: 1 })
     ).not.toBeInTheDocument();
@@ -36,7 +36,7 @@ describe('Section', () => {
 
   it('does not render h1 on empty title', () => {
     const testTitle = 'Lorem';
-    render(<Section mainTitle='' />);
+    render(<Section mainTitle='' isMainTitle={true} />);
     expect(
       screen.queryByRole('heading', { level: 1 })
     ).not.toBeInTheDocument();
@@ -63,5 +63,11 @@ describe('Section', () => {
   it('render empty div on missing params', () => {
     render(<Section />);
     expect(screen.getByTestId('section').childNodes.length).toEqual(0);
+  });
+
+  it('render h2', () => {
+    render(<Section mainTitle='Lorem ipsum' />);
+    expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
+    expect(screen.getByText('Lorem ipsum')).toBeInTheDocument();
   });
 });
