@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-export const Sidebar = () => {
+export const Sidebar = ({ links = [] }) => {
   return (
     <div data-testid='sidebar'>
-      <a href=''>First link title</a>
-      <a href=''></a>
+      {links.map((link, i) => (
+        <a href=''>{link}</a>
+      ))}
     </div>
   );
 };

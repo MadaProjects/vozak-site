@@ -15,4 +15,14 @@ describe('Sidebar', () => {
       screen.getByRole('link', { name: 'First link title' })
     ).toBeInTheDocument();
   });
+
+  it('render diferent links', () => {
+    render(<Sidebar links={['Test first', 'Test second']} />);
+    expect(
+      screen.getByRole('link', { name: 'Test first' })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'Test second' })
+    ).toBeInTheDocument();
+  });
 });
