@@ -40,6 +40,7 @@ describe('IndexPage', () => {
     jest
       .spyOn(window, 'requestAnimationFrame')
       .mockImplementation((cb) => cb());
+    jest.spyOn(console, 'warn').mockImplementation(() => {});
   });
 
   afterEach(() => {

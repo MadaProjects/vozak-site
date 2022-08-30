@@ -53,7 +53,6 @@ export const Section = ({ mainTitle, text, isMainTitle }) => {
           style={textStyle}
           className='text-lg leading-8 md:text-[2.35vw] md:leading-[4vw] lg:text-2xl lg:leading-10'>
           <p>{text}</p>
-          <p>{text}</p>
         </div>
       ) : (
         ''

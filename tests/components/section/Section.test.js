@@ -3,6 +3,10 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { Section } from '../../../src/components/section/Section';
 
 describe('Section', () => {
+  beforeEach(() => {
+    jest.spyOn(console, 'warn').mockImplementation(() => {});
+  });
+
   it('render compnent', () => {
     render(<Section />);
     expect(screen.getByTestId('section')).toBeInTheDocument();
@@ -60,7 +64,7 @@ describe('Section', () => {
     expect(screen.getByText(text).tagName).toMatch('P');
   });
 
-  it('render empty div on missing params', () => {
+  it.skip('render empty div on missing params', () => {
     render(<Section />);
     expect(screen.getByTestId('section').childNodes.length).toEqual(0);
   });
@@ -69,5 +73,10 @@ describe('Section', () => {
     render(<Section mainTitle='Lorem ipsum' />);
     expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
     expect(screen.getByText('Lorem ipsum')).toBeInTheDocument();
+  });
+
+  it('render image', () => {
+    render(<Section />);
+    expect(screen.getByRole('img')).toBeInTheDocument();
   });
 });
