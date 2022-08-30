@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
+import { Footer } from '../components/footer/Footer';
 import { Section } from '../components/section/Section';
 import { sectionsData } from '../data';
 
@@ -177,6 +178,11 @@ const IndexPage = () => {
             mainTitle='Lorem ipsum'
             text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a laoreet lorem. Donec erat nisl, pretium ut purus vel, tempus volutpat justo. Aenean dictum sagittis elit mollis facilisis. Donec lacus neque, hendrerit vel tincidunt vitae, finibus id nulla. Integer efficitur, neque sit amet semper dictum, dui lorem condimentum libero, id mattis lectus enim vel libero. Mauris maximus, odio quis facilisis accumsan, orci eros tincidunt tortor, non feugiat nisi justo quis risus. Donec ipsum sapien, venenatis ut condimentum a, finibus sed augue. Praesent dapibus mattis urna et pretium.'
           />
+        </div>
+      </div>
+      <div className='bg-[#1C1D28] text-white'>
+        <div className='container mx-auto px-[5%] py-10 max-w-[1000px] text-center'>
+          <Footer />
         </div>
       </div>
     </div>
