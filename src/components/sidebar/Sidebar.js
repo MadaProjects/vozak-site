@@ -4,7 +4,7 @@ export const Sidebar = ({ links = [] }) => {
   return (
     <div data-testid='sidebar'>
       {links.map((link, i) => (
-        <a href=''>{link}</a>
+        <a href={`#section-${i}`}>{link}</a>
       ))}
     </div>
   );

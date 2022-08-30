@@ -39,4 +39,19 @@ describe('Sidebar', () => {
     render(<Sidebar links={links} />);
     expect(screen.getAllByRole('link').length).toBe(links.length);
   });
+
+  it('has right href attribute in links', () => {
+    const links = [
+      'Test first',
+      'Test second',
+      'Test second',
+      'Test second',
+      'Test second',
+    ];
+    render(<Sidebar links={links} />);
+    const allLinks = screen.getAllByRole('link');
+    expect(allLinks[0].getAttribute('href')).toEqual('#section-0');
+    expect(allLinks[2].getAttribute('href')).toEqual('#section-2');
+    expect(allLinks[4].getAttribute('href')).toEqual('#section-4');
+  });
 });
