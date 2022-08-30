@@ -9,20 +9,22 @@ describe('Sidebar', () => {
   });
 
   it('render links', () => {
-    render(<Sidebar links={['First link title', 'Second link title']} />);
+    const links = ['First link title', 'Second link title'];
+    render(<Sidebar links={links} />);
     expect(screen.getAllByRole('link').length).toBe(2);
     expect(
-      screen.getByRole('link', { name: 'First link title' })
+      screen.getByRole('link', { name: links[0] })
     ).toBeInTheDocument();
   });
 
   it('render diferent links', () => {
-    render(<Sidebar links={['Test first', 'Test second']} />);
+    const links = ['Test first', 'Test second'];
+    render(<Sidebar links={links} />);
     expect(
-      screen.getByRole('link', { name: 'Test first' })
+      screen.getByRole('link', { name: links[0] })
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('link', { name: 'Test second' })
+      screen.getByRole('link', { name: links[1] })
     ).toBeInTheDocument();
   });
 });
