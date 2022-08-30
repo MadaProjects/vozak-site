@@ -181,7 +181,7 @@ const IndexPage = () => {
         </div>
       </div>
       <div className='bg-[#1C1D28] text-white'>
-        <div className='container mx-auto px-[5%] py-10 max-w-[1000px] text-center'>
+        <div className='container mx-auto px-[5%] py-10 md:py-16 max-w-[1000px] text-center'>
           <Footer />
         </div>
       </div>
