@@ -27,4 +27,16 @@ describe('Sidebar', () => {
       screen.getByRole('link', { name: links[1] })
     ).toBeInTheDocument();
   });
+
+  it('render all links', () => {
+    const links = [
+      'Test first',
+      'Test second',
+      'Test second',
+      'Test second',
+      'Test second',
+    ];
+    render(<Sidebar links={links} />);
+    expect(screen.getAllByRole('link').length).toBe(links.length);
+  });
 });
